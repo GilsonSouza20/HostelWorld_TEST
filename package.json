@@ -1,0 +1,19 @@
+{
+  "name": "fiducial_automation_test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:qa": "npx cross-env ENV=qa npx playwright test",
+    "test:stage": "npx cross-env ENV=stage npx playwright test",
+    "test:prod": "npx cross-env ENV=prod npx playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.47.2",
+    "@types/node": "^22.7.4",
+    "cross-env": "^7.0.3"
+  }
+}
