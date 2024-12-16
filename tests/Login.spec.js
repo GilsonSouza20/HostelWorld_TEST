@@ -36,14 +36,14 @@ test.describe('TC_01 Login Tests', () => {
         });
 
         // -> Failure case: Get login error when email is wrong 
-        test(`Login Failure for ${roleName} with wrong email`, async ({ page }) => {
+        test(`login Failure for ${roleName} with wrong email`, async ({ page }) => {
             await loginPage.fillLoginDetails(wrongEmail, roleData.password);
             await loginPage.clickOnLoginBtn();
             await loginPage.invalidEmailorPassword();
         });
 
         // -> Failure case: Get login error when password is wrong 
-        test(`Login Failure for ${roleName} with wrong password`, async ({ page }) => {
+        test(`login Failure for ${roleName} with wrong password`, async ({ page }) => {
             await loginPage.fillLoginDetails(roleData.email, wrongPassword);
             await loginPage.clickOnLoginBtn();
             await loginPage.invalidEmailorPassword();

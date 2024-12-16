@@ -10,6 +10,9 @@ class HomePage
        this.homePageSearch = page.locator('#filters > h4:nth-child(7)');
        this.homePageByCategory = page.locator('#filters > h4:nth-child(12)');
        this.containerProducts = page.locator("div[class='container'][data-test]");
+       this.categories = page.locator('a[data-test="nav-categories"]');
+       this.handTools = page.locator('a[data-test="nav-hand-tools"]');
+       
 
     }
 
@@ -57,5 +60,17 @@ class HomePage
     {
         await expect(this.containerProducts).toBeVisible();
     }
+
+    async clickOnCategoriesDropDownBtn()
+    {
+        await this.categories.click();
+    }
+
+    async clickOnHandTools()
+    {
+        await this.handTools.click();
+    }
+
+
 } 
 module.exports = {HomePage};
