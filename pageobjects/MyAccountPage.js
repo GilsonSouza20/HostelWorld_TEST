@@ -6,6 +6,11 @@ class MyAccountPage
     {
        this.page = page;
        this.myAccount = page.locator('[data-test="page-title"]');
+       this.home = page.locator("a[data-test='nav-home']");
+    }
+
+    async validateMyAccountPageTitle() {
+        await expect(this.page).toHaveTitle(/Overview - Practice Software Testing/);
     }
 
     async isMyAccountTextViseble()
@@ -13,8 +18,9 @@ class MyAccountPage
         await expect(this.myAccount).toBeVisible();
     }
 
-    async validateMyAccountPageTitle() {
-        await expect(this.page).toHaveTitle(/Overview - Practice Software Testing/);
+    async clickOnHomeBtn()
+    {
+        await this.home.click();
     }
 }
 module.exports = {MyAccountPage};
