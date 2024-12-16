@@ -19,6 +19,14 @@ test.describe('TC_02 - Load Home Page', () => {
         await loginPage.goToLoginPage();
         await loginPage.validateLoginPageTitle();
 
+    });
+
+    test.afterEach(async ({ page }) => {
+        await page.close();
+    });
+
+    //Test for check if the Home Page is loaded
+    test('should display main elements in the HomePage', async ({ page }) => {
         await loginPage.fillLoginDetails(userCredentials.email, userCredentials.password);
         await loginPage.clickOnLoginBtn();
 
@@ -29,14 +37,6 @@ test.describe('TC_02 - Load Home Page', () => {
 
         homePage = new HomePage(page);
         await homePage.validateHomePageTitle();
-    });
-
-    test.afterEach(async ({ page }) => {
-        await page.close();
-    });
-
-    //Test for check if the Home Page if loaded
-    test('should display main elements in the HomePage', async ({ page }) => {
         await homePage.isHomePageSortViseble();
         await homePage.isHomePagePriceRangeViseble();
         await homePage.isHomePageSearchViseble();
