@@ -12,11 +12,14 @@ class HomePage
        this.containerProducts = page.locator("div[class='container'][data-test]");
        this.categories = page.locator('a[data-test="nav-categories"]');
        this.handTools = page.locator('a[data-test="nav-hand-tools"]');
-       
+       this.powerTools = page.locator('a[data-test="nav-power-tools"]');
+       this.others = page.locator('a[data-test="nav-other"]');
+       this.specialTools = page.locator('a[data-test="nav-special-tools"]');
 
     }
 
-    async validateHomePageTitle() {
+    async validateHomePageTitle() 
+    {
         await expect(this.page).toHaveTitle(/Practice Software Testing/);
     }
 
@@ -71,6 +74,19 @@ class HomePage
         await this.handTools.click();
     }
 
+    async clickOnPowerTools()
+    {
+        await this.powerTools.click();
+    }
 
+    async clickOnOthers()
+    {
+        await this.others.click();
+    }
+
+    async clickOnSpecialTools()
+    {
+        await this.specialTools.click();
+    }
 } 
 module.exports = {HomePage};

@@ -5,10 +5,11 @@ class HandToolsPage {
     constructor(page)
     {
         this.page = page;
-        this.userEmail = page.locator("");
-
     }
 
-  
+    async validateHandToolsPageTitle() 
+    {
+        await expect(this.page).toHaveTitle(/Hand Tools - Practice Software Testing/);
+    }
 }
 module.exports = {HandToolsPage};

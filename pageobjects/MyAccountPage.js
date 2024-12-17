@@ -9,7 +9,8 @@ class MyAccountPage
        this.home = page.locator("a[data-test='nav-home']");
     }
 
-    async validateMyAccountPageTitle() {
+    async validateMyAccountPageTitle() 
+    {
         await expect(this.page).toHaveTitle(/Overview - Practice Software Testing/);
     }
 
