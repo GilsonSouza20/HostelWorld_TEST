@@ -15,7 +15,9 @@ class HomePage
        this.powerTools = page.locator('a[data-test="nav-power-tools"]');
        this.others = page.locator('a[data-test="nav-other"]');
        this.specialTools = page.locator('a[data-test="nav-special-tools"]');
-
+       this.searchField = page.locator('input[data-test="search-query"]'); 
+       this.searchBtn = page.locator('button[data-test="search-submit"]');
+       this.searchResult = page.locator('h3[data-test="search-caption"]');   
     }
 
     async validateHomePageTitle() 
@@ -46,7 +48,7 @@ class HomePage
         await expect(this.homePageSearch).toBeVisible();
         await expect(this.homePageSearch).toContainText("Search");
 
-        const search = await this.homePagePriceRange.textContent();
+        const search = await this.homePageSearch.textContent();
         console.log('HomePage Search Text:', search);
     }
 
@@ -88,5 +90,21 @@ class HomePage
     {
         await this.specialTools.click();
     }
+
+    async searchProduct(search)
+    {
+        await this.searchField.fill(search);
+    }
+    
+    async clickSearchProduct()
+    {
+        await this.searchBtn.click();
+    }
+    
+    async verifySearchResult(searchResult)
+    {
+        await expect(this.searchResult).toContainText(searchResult); 
+    }
+    
 } 
 module.exports = {HomePage};

@@ -69,7 +69,7 @@ test.describe('TC_03 - Navigation Links', () => {
     });
 });
 
-test.describe('TC_03 Navigation Links with PERMISSION', () => {
+test.describe('TC_04 Navigation Links with PERMISSION', () => {
     Object.entries(roles).forEach(([roleName, roleData]) => {
 
         test.beforeEach(async ({ page }) => {
