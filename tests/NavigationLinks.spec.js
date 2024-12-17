@@ -37,7 +37,6 @@ test.describe('TC_03 - Navigation Links', () => {
         homePage = new HomePage(page);
         await homePage.validateHomePageTitle();
         await homePage.clickOnCategoriesDropDownBtn();
-
     });
 
     test.afterEach(async ({ page }) => {

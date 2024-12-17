@@ -7,13 +7,11 @@ const { HomePage } = require("../pageobjects/HomePage");
 const currentEnvironment = process.env.ENV || 'qa';
 const userCredentials = environments[currentEnvironment].normal_user;
 
-
 let loginPage;
 let myAccountPage;
 let homePage;
-let searchString = "hammer";
 
-test.describe('TC_05 - Search Functionality', () => {
+test.describe('TC_06 - Verify Lenguages', () => {
 
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
@@ -26,23 +24,20 @@ test.describe('TC_05 - Search Functionality', () => {
         await myAccountPage.validateMyAccountPageTitle();
         await myAccountPage.isMyAccountTextViseble();
         await myAccountPage.clickOnHomeBtn();
+
     });
 
     test.afterEach(async ({ page }) => {
         await page.close();
     });
 
-    //Test for check if the Search functionality works properly
-    test('should be able to search', async ({ page }) => {
-        
+    //Test for check French Language
+    test('Verify If The Language Is Changed', async ({ page }) => {
         homePage = new HomePage(page);
         await homePage.validateHomePageTitle();
-        await homePage.isHomePageSearchViseble();
-        await homePage.searchProduct(searchString)
-        await homePage.clickSearchProduct();
-        await homePage.verifySearchResult(searchString);
+        await homePage.clickBtnLanguages();
+        await homePage.selectLanguage();
+        await homePage.checkLanguage();
     });
 });
-
-
 

@@ -5,7 +5,6 @@ const { MyAccountPage } = require("../pageobjects/MyAccountPage");
 const { HomePage } = require("../pageobjects/HomePage");
 
 const currentEnvironment = process.env.ENV || 'qa';
-
 const userCredentials = environments[currentEnvironment].normal_user;
 
 let loginPage;
@@ -18,7 +17,6 @@ test.describe('TC_02 - Load Home Page', () => {
         loginPage = new LoginPage(page);
         await loginPage.goToLoginPage();
         await loginPage.validateLoginPageTitle();
-
     });
 
     test.afterEach(async ({ page }) => {
